@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Manrope:wght@200..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Noto Serif", serif;
+  --font-sans: "Manrope", sans-serif;
+
+  --color-primary: #735c00;
+  --color-primary-container: #d4af37;
+  --color-surface: #fafaf5;
+  --color-surface-container-low: #f4f4ef;
+  --color-surface-container-lowest: #ffffff;
+  --color-outline-variant: #d0c5af;
+  --color-secondary: #5f5e5e;
+  --color-on-surface: #1a1c19;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased selection:bg-primary-container selection:text-on-surface;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-surface px-8 py-4 font-sans text-sm tracking-widest uppercase transition-all hover:bg-on-surface active:scale-95 disabled:opacity-50;
+  }
+
+  .btn-outline {
+    @apply border border-outline-variant text-on-surface px-8 py-4 font-sans text-sm tracking-widest uppercase transition-all hover:border-on-surface active:scale-95 disabled:opacity-50;
+  }
+
+  .editorial-link {
+    @apply relative inline-block font-sans text-xs tracking-[0.2em] uppercase after:absolute after:bottom-[-4px] after:left-0 after:h-[1px] after:w-0 after:bg-on-surface after:transition-all hover:after:w-full;
+  }
+}
